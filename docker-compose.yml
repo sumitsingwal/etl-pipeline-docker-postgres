@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: etl_postgres
+    environment:
+      POSTGRES_USER: etl_user
+      POSTGRES_PASSWORD: etl_pass
+      POSTGRES_DB: etl_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  etl:
+    build: .
+    container_name: etl_script
+    depends_on:
+      - db
+    environment:
+      COINDESK_API_KEY: ${COINDESK_API_KEY}
+      DB_HOST: db
+      DB_USER: etl_user
+      DB_PASSWORD: etl_pass
+      DB_NAME: etl_db
+
+volumes:
+  postgres_data:
