@@ -20,21 +20,25 @@ This project sets up a complete ETL (Extract-Transform-Load) pipeline using:
 ---
 
 ## 📦 Project Structure
+```
 etl-pipeline-docker-postgres/
-├── airflow
-│   ├── dags
-│   │   ├── etl_dag.py            # Main ETL DAG
-│   │   └── first_dag.py         # Sample Hello World DAG
-│   └── docker-compose.yml       # Docker Compose configuration
+│
+├── airflow/
+│   ├── dags/
+│   │   ├── etl_dag.py                 # Main ETL DAG
+│   │   └── first_dag.py               # Sample Hello World DAG
+│   └── docker-compose.yml             # Airflow Docker Compose configuration
+│
 ├── etl/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── .env (not pushed to GitHub)
-├── Dockerfile
-├── docker-compose.yml
-├── .gitignore
-├── README.md
-
+│   ├── main.py                        # ETL script
+│   ├── requirements.txt               # Python dependencies
+│   └── .env                           # Environment variables (not in version control)
+│
+├── Dockerfile                         # Docker image configuration
+├── docker-compose.yml                 # Main Docker Compose configuration
+├── .gitignore                         # Git ignore rules
+└── README.md                          # Project documentation
+```
 ---
 
 ## ⚙️ Setup Instructions
